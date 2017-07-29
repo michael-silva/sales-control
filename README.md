@@ -4,7 +4,8 @@
 * Started at 15:15
 * Coffebreak at 15:45 
 * Back to work 16:15
-* Current time elapsed = 3:10
+* Pause to maker dinner at 20h
+* Current time elapsed = 4:45
 
 
 next tasks
