@@ -1,10 +1,32 @@
-<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><script src="libs/jquery-1.10.2.min.js"></script><script src="libs/handlebars-v1.3.0.js"></script><script src="assets/js/geolocation.js"></script><link rel="stylesheet" href="assets/css/geolocation.min.css"></head><body class="container"><h1 id="title">GeoLocation Test</h1><hr class="divider"><section id="mainContent"></section><script type="text/x-handlebars" id="index"><section id="geoLocationContainer" class="">
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="libs/jquery-1.10.2.min.js"></script>
+		<script src="libs/handlebars-v1.3.0.js"></script>
+		<script src="assets/js/geolocation.js"></script>
+
+		<link rel="stylesheet" href="assets/css/geolocation.min.css">
+
+	</head>
+	<body class="container">
+		<h1 id="title">GeoLocation Test</h1>
+		<hr class="divider"></hr>
+		<section id="mainContent"> </section>
+
+		<script type="text/x-handlebars" id="index">
+				<section id="geoLocationContainer" class="">
 
 				</section>
 				<menu>
 					<button onclick="getMyLocation()" id="btnMyLocation">My location</button>
 					<button onclick="resetLocationDetails()" id="btnResetLocation">Reset location</button>
-				</menu></script><script type="text/x-handlebars" id="locationInfo"><h4>Estimated location</h4>
+				</menu>
+		</script>
+
+		<script type="text/x-handlebars" id="locationInfo">
+			<h4>Estimated location</h4>
 
 			<table align="center" class="empty">
 				<tbody>
@@ -44,4 +66,7 @@
 						<td><button class="help">?</button></td>
 					</tr>
 				</tbody>
-			</table></script></body></html>
+			</table>
+		</script>
+	</body>
+</html>

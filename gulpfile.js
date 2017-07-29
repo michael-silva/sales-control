@@ -4,42 +4,35 @@ const gulp = require('gulp'),
     rename = require('gulp-rename'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
-    htmlmin = require('gulp-htmlmin'),
-    browserSync = require('browser-sync').create();
+    //htmlmin = require('gulp-htmlmin'),
+    exec = require('child_process').exec;
 
 // Static Server + watching scss/html files
-gulp.task('default', ['watch-html', 'watch-sass'], function () {
-
-    browserSync.init({
-        server: "./dist"
+gulp.task('default', ['watch-sass'], function (cb) {
+    exec('ng serve', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
     });
-
-    gulp.watch(["./dist/**/*.*"]).on('change', browserSync.reload);
 });
 
-gulp.task('build-html', ['sass'], function () {
+/*
+gulp.task('build-html', function (cd) {
     return gulp.src('src/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('dist'));
 });
-
-gulp.task('watch-html', ['build-html'], function () {
-    return gulp
-        .watch(`src/*.html`, ['build-html'])
-        .on('change', function (event) {
-            console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        });
-});
+*/
 
 gulp.task('sass', function () {
     return gulp
-        .src(`src/assets/sass/geolocation.scss`)
+        .src(`src/assets/sass/main.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(autoprefixer())
-        .pipe(rename('geolocation.min.css'))
-        .pipe(gulp.dest(`dist/assets/css`));
+        .pipe(rename('main.min.css'))
+        .pipe(gulp.dest(`src/`));
 });
 
 gulp.task('watch-sass', ['sass'], function () {
