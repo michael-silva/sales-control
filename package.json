@@ -4,7 +4,14 @@
   "description": "* As a curious web surfer, I want to be able to locate both me and any website on a map.\r * I sometimes use a desktop, sometimes a tablet and sometimes a cell phone, so I need a responsive web page.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "concurrently \"npm run watch-css\" \"ng serve\"",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build-css": "gulp sass",
+    "watch-css": "gulp watch-sass"
   },
   "repository": {
     "type": "git",
@@ -36,6 +43,14 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.0.1",
+    "concurrently": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-watch": "^4.3.11",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -47,13 +62,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-watch": "^4.3.11"
+    "typescript": "~2.3.3"
   }
 }

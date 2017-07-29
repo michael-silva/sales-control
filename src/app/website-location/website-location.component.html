@@ -1,0 +1,8 @@
+<section id="geoLocationContainer" class="">
+    <geo-display [geolocation]="geolocation"></geo-display>
+</section>
+<menu>
+    <input type="text" [(ngModel)]="hostName" placeholder="www.hostname.com" />
+    <button (click)="setLocation()" id="btnMyLocation">Find location</button>
+    <button (click)="resetLocation()" id="btnResetLocation">Reset location</button>
+</menu>

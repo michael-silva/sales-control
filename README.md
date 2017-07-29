@@ -4,6 +4,7 @@
 * Started at 15:15
 * Coffebreak at 15:45 
 * Back to work 16:15
+* 
 
 ### Story Phrase ###
 * As a curious web surfer, I want to be able to locate both me and any website on a map.

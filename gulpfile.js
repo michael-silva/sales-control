@@ -8,13 +8,7 @@ const gulp = require('gulp'),
     exec = require('child_process').exec;
 
 // Static Server + watching scss/html files
-gulp.task('default', ['watch-sass'], function (cb) {
-    exec('ng serve', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
-});
+gulp.task('default', ['watch-sass']);
 
 /*
 gulp.task('build-html', function (cd) {
