@@ -21,6 +21,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/michael-developer/ui-challenge#readme",
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.0",
     "@angular/animations": "^4.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",

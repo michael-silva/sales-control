@@ -4,7 +4,18 @@
 * Started at 15:15
 * Coffebreak at 15:45 
 * Back to work 16:15
-* 
+* Current time elapsed = 3:10
+
+
+next tasks
+create map
+responsive styling
+input and error validation
+revision
+write tests
+write readme
+test readme 
+finish
 
 ### Story Phrase ###
 * As a curious web surfer, I want to be able to locate both me and any website on a map.

@@ -1,6 +1,7 @@
 <h4>Map markers</h4>
 
-<ul>
-    <li *ngFor="let marker of markers | async">{{marker.title}}</li>
-</ul>
-
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [fitBounds]="bounds" [zoom]="1" [maxZoom]="20">
+  <agm-marker *ngFor="let marker of markers" [title]="marker.title" [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
+</agm-map>

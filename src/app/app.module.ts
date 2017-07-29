@@ -14,6 +14,8 @@ import { MapDisplayComponent } from './map-display/map-display.component';
 import { MyLocationComponent } from './my-location/my-location.component';
 import { WebsiteLocationComponent } from './website-location/website-location.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,10 @@ import { WebsiteLocationComponent } from './website-location/website-location.co
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyABoh-b6DLMcmUl77LMk20UWHpUffRqeN0'
+    })
   ],
   providers: [GeolocationService, MapService],
   bootstrap: [AppComponent]
