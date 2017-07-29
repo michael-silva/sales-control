@@ -1,0 +1,26 @@
+{
+  "name": "ui-challenge",
+  "version": "1.0.0",
+  "description": "* As a curious web surfer, I want to be able to locate both me and any website on a map.\r * I sometimes use a desktop, sometimes a tablet and sometimes a cell phone, so I need a responsive web page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://michael-developer@bitbucket.org/michael-developer/ui-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/michael-developer/ui-challenge#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

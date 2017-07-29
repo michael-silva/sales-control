@@ -1,5 +1,7 @@
 # Avenue Code UI Challenge - Part I #
 
+Started at 15:15
+
 ### Story Phrase ###
 * As a curious web surfer, I want to be able to locate both me and any website on a map.
 * I sometimes use a desktop, sometimes a tablet and sometimes a cell phone, so I need a responsive web page.
