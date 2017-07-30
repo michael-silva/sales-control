@@ -9,7 +9,7 @@ Obs. The app will automatically reload if you change any of the source files.
 
 Run `npm test` to execute all unit tests.
 
-Run `npm build`to prepare a deploy package of application.
+Run `npm run build`to prepare a deploy package of application.
 
 
 ## libraries useds ##
