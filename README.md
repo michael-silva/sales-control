@@ -1,19 +1,10 @@
 # Avenue Code UI Challenge - Part I #
 
 ## Timelog ##
-* Started at 15:15pm
-* Coffebreak at 15:45pm
-* Back to work 16:15pm
-* Pause to maker dinner at 20pm
-* Current time elapsed = 4:45pm
-* More a little of work 00:00am
-* Going to sleep at 1:15am
-* Starting work at 10:00am
+* Current time elapsed = 8:00pm
 
 
 next tasks
-input and error validation
-revision
 write tests
 write readme
 test readme 

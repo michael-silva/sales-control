@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -11,12 +11,16 @@ import { LatLngBounds, MapsAPILoader } from '@agm/core';
     selector: 'map-display',
     templateUrl: './map-display.component.html'
 })
-export class MapDisplayComponent {
+export class MapDisplayComponent implements OnInit {
     private markers: MapMarker[];
     private bounds: LatLngBounds;
 
-    constructor(private mapService: MapService, private mapsAPILoader: MapsAPILoader) {
-        this.mapsAPILoader.load()
+    constructor(
+        private mapService: MapService,
+        private mapsAPILoader: MapsAPILoader) { }
+
+    ngOnInit(): void {
+         this.mapsAPILoader.load()
             .then(() => {
                 this.mapService.getMarkers()
                     .subscribe(markers => {

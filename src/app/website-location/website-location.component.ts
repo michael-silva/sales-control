@@ -13,6 +13,7 @@ import { MapService } from '../shared/map.service';
     templateUrl: './website-location.component.html'
 })
 export class WebsiteLocationComponent {
+    static readonly DEFAULT_ERROR: string = 'Sorry, we can\'t find out this host location.';
     geolocation: Geolocation;
     marker: MapMarker;
     errorMessage: string;
@@ -20,6 +21,7 @@ export class WebsiteLocationComponent {
 
     constructor(private geolocationService: GeolocationService, private mapService: MapService) {
         this.geolocation = new Geolocation();
+        this.marker = null;
     }
 
     _clearMark() {
@@ -29,9 +31,7 @@ export class WebsiteLocationComponent {
         }
     }
 
-    setLocation(form: NgForm) {
-        if(form.invalid) return;
-
+    setLocation() {
         this.errorMessage = '';
         this.geolocationService.findHost(this.hostName)
             .then(geo => {
@@ -40,16 +40,25 @@ export class WebsiteLocationComponent {
                 this.marker = this.mapService.createMarker(`${this.hostName} Location`, geo.latitude, geo.longitude);
             })
             .catch(err => {
-                this.errorMessage = 'Desculpe mas não conseguimos encontrar o seu local.';
+                this.errorMessage = WebsiteLocationComponent.DEFAULT_ERROR;
                 console.log(err);
             });
     }
 
-    resetLocation(form: NgForm) {
+    resetLocation() {
         this.errorMessage = '';
         this.hostName = '';
-        form.reset();
         this.geolocation = new Geolocation();
         this._clearMark();
+    }
+
+    setLocationForm(form: NgForm) {
+        if(form.invalid) return;
+        this.setLocation();
+    }
+
+    resetLocationForm(form: NgForm) {
+        form.reset();
+        this.resetLocation();
     }
 }

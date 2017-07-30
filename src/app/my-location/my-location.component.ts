@@ -12,12 +12,14 @@ import { MapService } from '../shared/map.service';
   templateUrl: './my-location.component.html'
 })
 export class MyLocationComponent {
+    static readonly DEFAULT_ERROR: string = 'Sorry, we can\'t find out your location.';
     geolocation: Geolocation;
     marker: MapMarker;
     errorMessage: string;
 
     constructor(private geolocationService: GeolocationService, private mapService: MapService) {
         this.geolocation = new Geolocation();
+        this.marker = null;
     }
 
     _clearMark() {
@@ -36,7 +38,7 @@ export class MyLocationComponent {
                 this.marker = this.mapService.createMarker('My Location', geo.latitude, geo.longitude);
             })
             .catch(err => {
-                this.errorMessage = 'Desculpe mas não conseguimos encontrar o seu local.';
+                this.errorMessage = MyLocationComponent.DEFAULT_ERROR;
                 console.log(err);
             });
     }
