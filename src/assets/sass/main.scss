@@ -6,17 +6,30 @@
 
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
-*{
-	text-align: center;
-	font-size: 20px;
+.modal {
+	display: block;
+	pointer-events: none;
+	z-index: -1;
+
+	&.show {
+		pointer-events: all;
+		z-index: 1080;
+	}
 }
 
-div, button{
-	margin: 0 10px;
+.geo-display {
+	&.empty {
+		.help {
+			visibility: hidden;
+			pointer-events: none;
+		}
+	}
 }
+
 .location_value {
 	color: red;
 }
+
 #title{
 	font-size: 48px;
 }

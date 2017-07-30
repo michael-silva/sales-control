@@ -1,7 +1,10 @@
-<section id="geoLocationContainer" class="">
-    <geo-display [geolocation]="geolocation"></geo-display>
-</section>
-<menu>
-    <button (click)="setLocation()" id="btnMyLocation">My location</button>
-    <button (click)="resetLocation()" id="btnResetLocation">Reset location</button>
-</menu>
+<h4>Estimated location</h4>
+
+<form class="actions">
+    <div class="form-group">
+        <button (click)="setLocation()" class="btn btn-primary">My location</button>
+        <button (click)="resetLocation()" class="btn btn-default" [hidden]="!geolocation.country">Reset location</button>
+    </div>
+</form>
+
+<geo-display [geolocation]="geolocation"></geo-display>

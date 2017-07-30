@@ -1,41 +1,54 @@
-<h4>Estimated location</h4>
+<div class="geo-display" [class.empty]="isEmpty">
+    <div class="row">
+        <div class="col-2">IP</div>
+        <div class="col text-right">{{geolocation.ip}} <button (click)="showHelp('IP')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+    <div class="row">
+        <div class="col">Country</div>
+        <div class="col text-right">{{geolocation.country}} <button (click)="showHelp('Country')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
 
-<table class="empty">
-    <tbody>
-        <tr>
-            <td class="field_name">IP</td>
-            <td id="location_query" class="location_value">{{geolocation.ip}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">Country</td>
-            <td id="location_country" class="location_value">{{geolocation.country}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">Region</td>
-            <td id="location_regionName" class="location_value">{{geolocation.region}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">City</td>
-            <td id="location_city" class="location_value">{{geolocation.city}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">Zip Code</td>
-            <td id="location_zip_code" class="location_value">{{geolocation.zipCode}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">Latitude</td>
-            <td id="location_lat" class="location_value">{{geolocation.latitude}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-        <tr>
-            <td class="field_name">Longitude</td>
-            <td id="location_lon" class="location_value">{{geolocation.longitude}}</td>
-            <td><button class="help">?</button></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="row">
+        <div class="col">Region</div>
+        <div class="col text-right">{{geolocation.region}} <button (click)="showHelp('Region')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+
+    <div class="row">
+        <div class="col">City</div>
+        <div class="col text-right">{{geolocation.city}} <button (click)="showHelp('City')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Zip Code</div>
+        <div class="col text-right">{{geolocation.zipCode}} <button (click)="showHelp('Zip Code')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Latitude</div>
+        <div class="col text-right">{{geolocation.latitude}} <button (click)="showHelp('Latitude')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Longitude</div>
+        <div class="col text-right">{{geolocation.longitude}} <button (click)="showHelp('Longitude')" class="btn btn-default btn-sm help">?</button></div>
+    </div>
+</div>
+
+<div class="modal fade" [class.show]="showingHelp" (click)='hideHelp()'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" (click)='$event.stopPropagation()'>
+            <div class="modal-header">
+                <h5 class="modal-title">Help text</h5>
+                <button (click)='hideHelp()' type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>This is your {{helpLabel}} according to {{apiHost}}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)='hideHelp()' class="btn btn-primary">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,13 +7,13 @@ import { Geolocation } from './geolocation.model';
 
 @Injectable()
 export class GeolocationService {
-    readonly API_HOST: string = `freegeoip.net`;
+    static readonly API_HOST: string = `freegeoip.net`;
 
     constructor(private http: HttpClient) { }
 
     _find(host: string = ''): Promise<Geolocation> {
         return new Promise((resolve, reject) => {
-            this.http.get<ApiResponseModel>(`http://${this.API_HOST}/json/${host}`)
+            this.http.get<ApiResponseModel>(`http://${GeolocationService.API_HOST}/json/${host}`)
                 .subscribe(res => {
                     resolve({
                         ip: res.ip,

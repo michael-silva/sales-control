@@ -6,6 +6,9 @@
 * Back to work 16:15
 * Pause to maker dinner at 20h
 * Current time elapsed = 4:45
+* More a little of work 00:00
+* Going to sleep at 1:15
+* Go back tomorrow
 
 
 next tasks
