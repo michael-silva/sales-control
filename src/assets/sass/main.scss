@@ -26,33 +26,11 @@
 	}
 }
 
-.location_value {
-	color: red;
+.form-group.empty {
+	height: 2.1rem;
 }
 
-#title{
-	font-size: 48px;
-}
-
-#btnMyLocation, #btnResetLocation {
-	width: 300px;
-	height:50;
-}
-
-table > tbody > tr > td.field_name {
-    text-align: left;
-}
-
-table > tbody > tr > td.location_value {
-    width: 200px;
-}
-
-table.empty .help {
-    visibility: hidden;
-}
-
-
-agm-map {
-  height: 300px;
-  width: 100%;
+.map {
+	height: 300px;
+	width: 100%;
 }

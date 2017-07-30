@@ -1,14 +1,18 @@
 <h4>Website location</h4>
 
-<form class="actions" #findForm="ngForm" (submit)="setLocation(findForm.valid)">
+<form class="actions" #findForm="ngForm" (submit)="setLocation(findForm)">
     <div class="form-group" [class.has-danger]="hostname.invalid && hostname.touched">
         <input class="form-control" required type="text" #hostname="ngModel" name="hostname" pattern="www\.[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [(ngModel)]="hostName" placeholder="www.hostname.com" />
         <span class="form-control-feedback" [hidden]="hostname.valid || hostname.pristine">It's required a valid url, like: www.avenuecode.com</span>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary" [disabled]="hostname.invalid">Find location</button>
-        <button (click)="resetLocation()" class="btn btn-default" [hidden]="hostname.invalid">Reset location</button>
+        <button (click)="resetLocation(findForm)" class="btn btn-default" [hidden]="!geolocation.country">Reset location</button>
     </div>
 </form>
 
 <geo-display [geolocation]="geolocation"></geo-display>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+    <p>{{errorMessage}}</p>
+</div>

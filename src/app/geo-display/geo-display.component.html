@@ -1,36 +1,36 @@
 <div class="geo-display" [class.empty]="isEmpty">
     <div class="row">
         <div class="col-2">IP</div>
-        <div class="col text-right">{{geolocation.ip}} <button (click)="showHelp('IP')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.ip}}</span> <button (click)="showHelp('IP')" class="btn btn-default btn-sm help">?</button></div>
     </div>
     <div class="row">
         <div class="col">Country</div>
-        <div class="col text-right">{{geolocation.country}} <button (click)="showHelp('Country')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.country}}</span> <button (click)="showHelp('Country')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 
     <div class="row">
         <div class="col">Region</div>
-        <div class="col text-right">{{geolocation.region}} <button (click)="showHelp('Region')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.region}}</span> <button (click)="showHelp('Region')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 
     <div class="row">
         <div class="col">City</div>
-        <div class="col text-right">{{geolocation.city}} <button (click)="showHelp('City')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.city}}</span> <button (click)="showHelp('City')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 
     <div class="row">
         <div class="col">Zip Code</div>
-        <div class="col text-right">{{geolocation.zipCode}} <button (click)="showHelp('Zip Code')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.zipCode}}</span> <button (click)="showHelp('Zip Code')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 
     <div class="row">
         <div class="col">Latitude</div>
-        <div class="col text-right">{{geolocation.latitude}} <button (click)="showHelp('Latitude')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.latitude}}</span> <button (click)="showHelp('Latitude')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 
     <div class="row">
         <div class="col">Longitude</div>
-        <div class="col text-right">{{geolocation.longitude}} <button (click)="showHelp('Longitude')" class="btn btn-default btn-sm help">?</button></div>
+        <div class="col text-right"><span class="text-danger">{{geolocation.longitude}}</span> <button (click)="showHelp('Longitude')" class="btn btn-default btn-sm help">?</button></div>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>This is your {{helpLabel}} according to {{apiHost}}.</p>
+                <p>This is the {{helpLabel}} according to {{apiHost}}.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" (click)='hideHelp()' class="btn btn-primary">Ok</button>

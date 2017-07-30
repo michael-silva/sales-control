@@ -20,11 +20,19 @@ export class MyLocationComponent {
         this.geolocation = new Geolocation();
     }
 
+    _clearMark() {
+        if (this.marker) {
+            this.mapService.removeMarker(this.marker);
+            this.marker = null;
+        }
+    }
+
     setLocation() {
         this.errorMessage = '';
         this.geolocationService.findLocal()
             .then(geo => {
                 this.geolocation = geo;
+                this._clearMark();
                 this.marker = this.mapService.createMarker('My Location', geo.latitude, geo.longitude);
             })
             .catch(err => {
@@ -36,9 +44,6 @@ export class MyLocationComponent {
     resetLocation() {
         this.errorMessage = '';
         this.geolocation = new Geolocation();
-        if (this.marker) {
-            this.mapService.removeMarker(this.marker);
-            this.marker = null;
-        }
+        this._clearMark();
     }
 }

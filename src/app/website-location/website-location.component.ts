@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 import { Geolocation } from '../shared/geolocation.model';
 import { GeolocationService } from '../shared/geolocation.service';
@@ -21,11 +22,21 @@ export class WebsiteLocationComponent {
         this.geolocation = new Geolocation();
     }
 
-    setLocation() {
+    _clearMark() {
+        if (this.marker) {
+            this.mapService.removeMarker(this.marker);
+            this.marker = null;
+        }
+    }
+
+    setLocation(form: NgForm) {
+        if(form.invalid) return;
+
         this.errorMessage = '';
         this.geolocationService.findHost(this.hostName)
             .then(geo => {
                 this.geolocation = geo;
+                this._clearMark();
                 this.marker = this.mapService.createMarker(`${this.hostName} Location`, geo.latitude, geo.longitude);
             })
             .catch(err => {
@@ -34,13 +45,11 @@ export class WebsiteLocationComponent {
             });
     }
 
-    resetLocation() {
+    resetLocation(form: NgForm) {
         this.errorMessage = '';
         this.hostName = '';
+        form.reset();
         this.geolocation = new Geolocation();
-        if (this.marker) {
-            this.mapService.removeMarker(this.marker);
-            this.marker = null;
-        }
+        this._clearMark();
     }
 }

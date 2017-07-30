@@ -1,6 +1,7 @@
 <h4>Estimated location</h4>
 
 <form class="actions">
+    <div class="form-group empty"></div>
     <div class="form-group">
         <button (click)="setLocation()" class="btn btn-primary">My location</button>
         <button (click)="resetLocation()" class="btn btn-default" [hidden]="!geolocation.country">Reset location</button>
@@ -8,3 +9,7 @@
 </form>
 
 <geo-display [geolocation]="geolocation"></geo-display>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+    <p>{{errorMessage}}</p>
+</div>
