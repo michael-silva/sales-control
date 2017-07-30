@@ -43,6 +43,7 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "bootstrap": "^4.0.0-alpha.6",
     "codelyzer": "~3.0.1",
     "concurrently": "^3.5.0",
     "gulp": "^3.9.1",
