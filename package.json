@@ -1,7 +1,7 @@
 {
-  "name": "ui-challenge",
+  "name": "sales-control",
   "version": "1.0.0",
-  "description": "* As a curious web surfer, I want to be able to locate both me and any website on a map.\r * I sometimes use a desktop, sometimes a tablet and sometimes a cell phone, so I need a responsive web page.",
+  "description": "A simple system to sale and control your stock.",
   "main": "index.js",
   "scripts": {
     "ng": "ng",

@@ -1,4 +1,4 @@
-# Simple sales system #
+# SALES CONTROL #
 
 ## Quick start ##
 
