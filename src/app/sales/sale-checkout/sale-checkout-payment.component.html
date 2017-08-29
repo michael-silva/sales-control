@@ -1,0 +1,10 @@
+<form>
+    <div class="form-group">
+        <select autofocus class="form-control custom-select" name="paymentForm" id="paymentForm" #paymentForm (keypress.enter)="onConfirm()">
+            <option *ngFor="let form of forms" value="{{form.value}}">{{form.label}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h4>Total à pagar: {{formatMoney(sale.sumTotal())}}</h4>
+    </div>
+</form>

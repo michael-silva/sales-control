@@ -1,0 +1,25 @@
+<h3 class="display-5">controle de produtos</h3>
+<hr>
+<datatable url="{{url}}">
+    <ng-template let-row="row">
+        <dropdown toggleText="<i class='fa fa-bars'></i>" toggleClass="btn btn-light" menuClass="p-0">
+            <div class="dropdown-item p-0">
+                <a class="list-group-item" [routerLink]="'./'+row.code">Editar</a>
+            </div>
+            <div class="dropdown-item p-0">
+                <a class="list-group-item" href="javascript:;" (click)="openStock(row)">Estoque</a>
+            </div>
+        </dropdown>
+    </ng-template>
+</datatable>
+
+<modal id="m1" #m1 [showing]="editing" title="Estoque de {{editing?.name}}" (close)="clearEditing()">
+    <modal-body>
+        <product-stock #prdstock *ngIf="editing" [product]="editing" (save)="m1.hide()"></product-stock>
+    </modal-body>
+    <modal-footer>
+        <a class="btn btn-link" [routerLink]="'./'+editing?.code">Editar produto</a>
+        <button class="btn btn-secondary" type="button" (click)="m1.hide()">Cancelar</button>
+        <button class="btn btn-success" type="button" (click)="saveStock()">Salvar</button>
+    </modal-footer>
+</modal>

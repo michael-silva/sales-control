@@ -1,0 +1,71 @@
+<h3 class="mb-3">Vendas <a href="#" class="pull-right" routerLink="/vendas/controle"><i class="fa fa-close"></i></a></h3>
+<div class="scroll-content">
+    <table *ngIf="sale.items.length" class="table table-striped table-hover table-fixed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Produto</th>
+                <th>Qtd. x Valor</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let line of sale.items" [ngClass]="{ 'table-danger': hasDanger(line), 'table-warning': hasWarning(line)  }">
+                <td><button class="btn btn-danger btn-sm" (click)="removeLine($index)"><i class="fa fa-close"></i></button></td>
+                <td>{{line.product.name}}/{{line.product.brand}}</td>
+                <td class="pb-0 line-height-1">
+                    {{line.amount}} x {{formatMoney(line.product.unitValue)}}
+                    <br><small class="text-muted" *ngIf="showStock(line)">({{line.product.stock - line.amount}} restantes)</small>
+                </td>
+                <td>{{formatMoney(line.total)}}</td>
+            </tr>
+        </tbody>
+        <tfoot *ngIf="sale.discount">
+            <tr class="text-danger">
+                <th></th>
+                <th>Desconto</th>
+                <th></th>
+                <th>{{formatMoney(-sale.discount)}}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<form autocomplete="off">
+    <div class="form-group">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+            <input type="text" class="form-control" #input name="barcode" id="barcode" [(ngModel)]="barcode" (keydown)="keypressHandler($event)"
+            />
+            <span class="input-group-addon">x {{quantity}}</span>
+        </div>
+    </div>
+    <div [hidden]="!errorMessage" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+</form>
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-block btn-primary" (click)="openPaymentFormModal()">Finalizar<br>Compra</button>
+    </div>
+    <div class="col">
+        <h2 class="display-2 text-right">{{formatMoney(sale.sumTotal())}}</h2>
+    </div>
+</div>
+
+<modal id="m1" #m1 [showing]="modalDiscount" (close)="closeDiscountModal()" title="desconto">
+    <modal-body>
+        <sale-checkout-discount *ngIf="modalDiscount" #checkoutDiscount [sale]="sale" (confirm)="mb1.click()"></sale-checkout-discount>
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-secondary" (click)="m1.hide()">Cancelar</button>
+        <button class="btn btn-success" #mb1 (click)="applyDiscount();m1.hide()">Aplicar desconto</button>
+    </modal-footer>
+</modal>
+
+<modal id="m2" #m2 [showing]="modalPaymentForm" (close)="closePaymentFormModal()" title="forma de pagmento">
+    <modal-body>
+        <sale-checkout-payment *ngIf="modalPaymentForm" #checkoutPayment [sale]="sale" (confirm)="mb2.click()"></sale-checkout-payment>
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-secondary" (click)="m2.hide()">Cancelar</button>
+        <button class="btn btn-success" #mb2 (click)="finishSale();m2.hide()">Finalizar</button>
+    </modal-footer>
+</modal>

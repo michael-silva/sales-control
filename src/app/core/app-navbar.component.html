@@ -1,0 +1,23 @@
+<nav [hidden]="!visible" class="navbar navbar-light navbar-expand-md">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Logo</a>
+    <div id="navbarText" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <dropdown toggleText="Vendas" toggleClass="nav-link dropdown-toggle">
+                    <a class="dropdown-item" href="#" routerLink="/vendas">Vender</a>
+                    <a class="dropdown-item" href="#" routerLink="/vendas/controle">Gerenciamento</a>
+                </dropdown>
+            </li>
+            <li class="nav-item">
+                <dropdown toggleText="Produtos" toggleClass="nav-link dropdown-toggle">
+                    <a class="dropdown-item" href="#" routerLink="/produtos/novo">Novo</a>
+                    <a class="dropdown-item" href="#" routerLink="/produtos">Gerenciamento</a>
+                </dropdown>
+            </li>
+        </ul>
+
+    </div>
+</nav>

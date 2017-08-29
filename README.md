@@ -1,30 +1,22 @@
-# Avenue Code UI Challenge - Part I #
+# Simple sales system #
 
 ## Quick start ##
 
-Run `npm install` to install the application dependences
+Execute `npm install` para instalar as dependências
 
-Run `npm start` to start a dev server, them navigate to  `http://localhost:4200/`.
-Obs. The app will automatically reload if you change any of the source files.
-
-Run `npm test` to execute all unit tests.
-
-Run `npm run build`to prepare a deploy package of application.
+Execute `npm start` para rodar a aplicação, acesse o link `http://localhost:4200/`.
 
 
-## libraries useds ##
+## Tela de vendas ##
 
-I thought to use a small library as Polymer because the application isn't very large but I chose the Angular because I have more experience with it and is more easy to make unit tests.
+Todas as funções da tela de vendas podem ser acessadas através do teclado
 
-### JS libraries ###
-* Angular(Current stable version)
+- Digitar um numero menor que 1000 e apertar ENTER adiciona a quantidade
+- Digitar o numero do codigo de barra e apertar ENTER inclui o produto na compra
+- Apertar ESC limpa a quantidade  e o código do produto digitado
+- Digitar 0 e apertar ENTER abre a modal de desconto
+- Segurar ALT e apertar ENTER abre a modal para finalizar compra
 
-### CSS libraries ###
-* Bootstrap 4
 
-### Test libraries ###
-* Karma
-* Jasmine
-
-## Special Mentions ##
-I don't used the angular-cli to generate the project only to build and serve, can you check my commits history.
+## Observações ##
+Backend ainda não implemntado então os dados serão perdidos a cada ve que rodar denovo o projeto.

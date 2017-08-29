@@ -1,0 +1,6 @@
+<div class="dropdown">
+    <input type="text" class="form-control" #input autocomplete="off" (keyup)="search(input.value)" (focus)="show()"/>
+    <div class="dropdown-menu" [class.show]="showing && (results | async)?.length">
+        <a class="dropdown-item dropdown-item-hoverable" *ngFor="let result of results | async" (click)="select(result)" innerHTML="{{result | highlight: input.value }}"></a>
+    </div>
+</div>

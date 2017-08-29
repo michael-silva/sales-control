@@ -1,0 +1,77 @@
+<h3 [hidden]="is('editing')" class="display-5">Novo Produto</h3>
+<h3 [hidden]="is('new')" class="display-5">[{{code.value}}] - {{name.value}}</h3>
+<hr />
+<form [formGroup]="productForm" novalidate (ngSubmit)="submitForm(productForm.value)">
+    <div class="form-group">
+        <label class="form-label">Código</label>
+        <input type="text" class="form-control" name="code" id="code" #code formControlName="code" autofocus [class.is-invalid]="showError('code')"/>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" name="name" id="name" #name formControlName="name" [class.is-invalid]="showError('name')"/>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Marca</label>
+        <input-autocomplete [url]="urlBrand" name="brand" id="brand" formControlName="brand" [class.is-invalid]="showError('brand')"></input-autocomplete>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Unidade de medida</label>
+        <select class="form-control custom-select" name="unitOfMeasurement" id="unitOfMeasurement" #unitOfMeasurement formControlName="unitOfMeasurement" [class.is-invalid]="showError('unitOfMeasurement')">
+            <option *ngFor="let unit of units" value="{{unit.value}}">{{unit.label}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Valor</label>
+        <div class="input-group">
+            <span class="input-group-addon">R$</span>
+            <input type="number" class="form-control" name="unitValue" id="unitValue" formControlName="unitValue" [class.is-invalid]="showError('unitValue')"/>
+        </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="showSummary()">
+        <p *ngFor="let error of formErrors"><a [attr.href]="'#' + error.link">{{error.message}}</a></p>
+    </div>
+    <div class="form-group">
+        <button *ngIf="product" class="btn btn-success" type="submit" [disabled]="!productForm.valid || is('loading')">
+            <span>
+                <i class="fa fa-pencil-square-o" *ngIf="!productForm.valid"></i>
+                <i class="fa fa-check" *ngIf="productForm.valid && !is('loading')"></i>
+                 Salvar dados
+            </span>
+            <span *ngIf="is('loading')"><i class="fa fa-spinner fa-spin"></i> Salvando...</span>
+        </button>
+        <button *ngIf="product" type="button" class="btn btn-primary"
+            [ngClass]="{ 'btn-danger': product.hasDanger(), 'btn-warning': product.hasWarning()  }"
+            (click)="openStock(productForm.value)">({{product.stock}}) Estoque</button>
+        <a class="btn btn-secondary" routerLink="/produtos">Cancelar</a>
+    </div>
+</form>
+<modal id="m1" [showing]="modalSuccess" (close)="closeSuccess()" title="sucesso">
+    <modal-body>
+        <p>Registro gravado com sucesso.</p>
+    </modal-body>
+    <modal-footer>
+        <a class="btn btn-link" routerLink="/produtos/novo">Cadastrar novo</a>
+        <a class="btn btn-primary" routerLink="/produtos">Voltar</a>
+    </modal-footer>
+</modal>
+
+<modal id="m2" #m2 [showing]="modalError" (close)="closeError()" title="tivemos um problema">
+    <modal-body>
+        <p>Ocorreu algum problema ao tentar gravar, atualize a página ou tente novamente mas tarde.</p>
+        <p>Ja colhemos as informações necessárias para solucionar o problema.</p>
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-primary" type="button" (click)="m2.hide()">Fechar</button>
+    </modal-footer>
+</modal>
+
+
+<modal id="m1" #m3 [showing]="modalStock" title="Estoque de {{product.name}}" (close)="closeStock()">
+    <modal-body>
+        <product-stock #prdstock *ngIf="modalStock" [postChanges]="is('editing')" [product]="product" (save)="m3.hide()"></product-stock>
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-secondary" type="button" (click)="m3.hide()">Cancelar</button>
+        <button class="btn btn-success" type="button" (click)="saveStock()">Salvar</button>
+    </modal-footer>
+</modal>

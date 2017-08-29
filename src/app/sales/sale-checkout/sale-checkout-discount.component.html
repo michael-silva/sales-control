@@ -1,0 +1,9 @@
+<form>
+    <div class="form-group">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon">R$ -</span>
+            <input type="number" #discountInput class="form-control" name="discount" id="discount" placeholder="0" [(ngModel)]="discount" (keydown.enter)="onConfirm()"/>
+        </div>
+        <h4>{{total()}} <small>= {{percentDiscount()}}% de desconto</small></h4>
+    </div>
+</form>

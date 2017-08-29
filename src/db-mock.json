@@ -1,0 +1,110 @@
+{
+    "products": [{
+            "code": "990001",
+            "name": "Ração de gato",
+            "brand": "Magnus",
+            "unitValue": 40.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990002",
+            "name": "Ração de cachorro",
+            "brand": "Magnus",
+            "unitValue": 70.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990003",
+            "name": "Gaiola",
+            "brand": "Magnus",
+            "unitValue": 50,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990004",
+            "name": "Ração de gato",
+            "brand": "Whiskas",
+            "unitValue": 60.0,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990005",
+            "name": "Ração de cachorro",
+            "brand": "Whiskas",
+            "unitValue": 80.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990006",
+            "name": "Coleira",
+            "brand": "Whiskas",
+            "unitValue": 15.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990007",
+            "name": "Ração de gato",
+            "brand": "Pedigree",
+            "unitValue": 70.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990008",
+            "name": "Ração de cachorro",
+            "brand": "Pedigree",
+            "unitValue": 90.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "990009",
+            "name": "Adubo",
+            "brand": "Casa de ração",
+            "unitValue": 2.50,
+            "unitOfMeasurement": "Kg",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "998001",
+            "name": "Milho",
+            "brand": "Casa de ração",
+            "unitValue": 3.50,
+            "unitOfMeasurement": "Kg",
+            "stock": 10,
+            "stockRecommended": 5
+        },
+        {
+            "code": "997001",
+            "name": "Saco de Milho de 15kg",
+            "brand": "Casa de ração",
+            "unitValue": 25.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10
+        },
+        {
+            "code": "996001",
+            "name": "Ração de cachorro",
+            "brand": "Royal",
+            "unitValue": 60.00,
+            "unitOfMeasurement": "Unit",
+            "stock": 10,
+            "stockRecommended": 5
+        }
+    ]
+}

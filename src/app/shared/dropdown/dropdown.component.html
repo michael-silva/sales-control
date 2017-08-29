@@ -1,0 +1,6 @@
+<div class="dropdown {{class}}" [class.show]="showing">
+    <a class="dropdown-toggle {{toggleClass}}" (click)="toggle($event)" [innerHtml]="getText()"></a>
+    <div class="dropdown-menu {{menuClass}}" [class.show]="showing">
+        <ng-content></ng-content>
+    </div>
+</div>

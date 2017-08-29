@@ -1,39 +1,45 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { GeolocationService } from './shared/geolocation.service';
-import { MapService } from './shared/map.service';
+import { AppRoutingModule } from './app.routing';
+import { CoreModule } from './core/core.module';
+
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { GeoDisplayComponent } from './geo-display/geo-display.component';
-import { MapDisplayComponent } from './map-display/map-display.component';
-import { MyLocationComponent } from './my-location/my-location.component';
-import { WebsiteLocationComponent } from './website-location/website-location.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
-import { AgmCoreModule } from '@agm/core';
+import { DatatableComponent } from './shared/datatable/datatable.component';
+import { ColumnComponent } from './shared/datatable/column.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { InputAutompleteComponent } from './shared/input-autocomplete/input-autocomplete.component';
+import { HighlightPipe } from './shared/pipes/highlight.pipe';
+
+import { DclWrapper } from './shared/component-outlet.directive';
+
+import { ProductService } from './shared/products/product.service';
+import { SaleService } from './shared/sales/sale.service';
+
+import { ConfigService } from './shared/config.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GeoDisplayComponent,
-    MapDisplayComponent,
-    MyLocationComponent,
-    WebsiteLocationComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyABoh-b6DLMcmUl77LMk20UWHpUffRqeN0'
-    })
-  ],
-  providers: [GeolocationService, MapService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NotFoundComponent
+    ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        FormsModule,
+        HttpClientModule,
+        CoreModule.forRoot(),
+        AppRoutingModule
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

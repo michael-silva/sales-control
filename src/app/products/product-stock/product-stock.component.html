@@ -1,0 +1,40 @@
+<form *ngIf="product">
+    <div class="form-group">
+        <label>
+            Quantidade em estoque
+            <span class="badge badge-warning" *ngIf="hasWarning()">abaixo do recomendado</span>
+            <span class="badge badge-danger" *ngIf="hasDanger()">perto da acabar</span>
+            <span class="badge badge-danger" *ngIf="product.stock === 0">esgotado</span>
+        </label>
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="0" name="stock" id="stock" [(ngModel)]="product.stock">
+            <span class="input-group-addon">{{product.unitOfMeasurement}}</span>
+            <span class="input-group-btn">
+                <button class="btn btn-outline-primary" type="button" (click)="increaseStock()"><i class="fa fa-plus"></i></button>
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-outline-primary" type="button" (click)="decreaseStock()" [disabled]="product.stock === 0"><i class="fa fa-minus"></i></button>
+            </span>
+        </div>
+        <small class="form-text text-muted">
+            {{currentStock}}
+            <i [hidden]="currentStock <= product.stock" class="fa fa-minus"></i>
+            <i [hidden]="currentStock >= product.stock" class="fa fa-plus"></i>
+            <span [hidden]="!hasChanges()">{{diffValue()}}</span>
+        </small>
+    </div>
+    <div class="form-group">
+        <label>Recomendado para estoque</label>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="0" name="stockRecommended" id="stockRecommended" [(ngModel)]="product.stockRecommended">
+            <span class="input-group-addon">{{product.unitOfMeasurement}}</span>
+            <span class="input-group-btn">
+                <button class="btn btn-outline-primary" type="button" (click)="increaseRecommendedStock()"><i class="fa fa-plus"></i></button>
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-outline-primary" type="button" (click)="decreaseRecommendedStock()" [disabled]="product.stockRecommended === 0"><i class="fa fa-minus"></i></button>
+            </span>
+        </div>
+    </div>
+    <div [hidden]="!error" class="alert alert-danger" role="alert">{{error}}</div>
+</form>

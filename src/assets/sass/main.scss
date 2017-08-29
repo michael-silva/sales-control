@@ -1,36 +1,34 @@
-/* ================================================
-// Note to candidate:
-//  This code has bad practices
-//  feel free to replace it with a better solution
-// ================================================ */
-
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-
 .modal {
-	display: block;
-	pointer-events: none;
-	z-index: -1;
-
-	&.show {
-		pointer-events: all;
-		z-index: 1080;
-	}
+    display: block;
+    pointer-events: none;
+    z-index: -1;
+    &.show {
+        pointer-events: all;
+        z-index: 1080;
+    }
 }
 
-.geo-display {
-	&.empty {
-		.help {
-			visibility: hidden;
-			pointer-events: none;
-		}
-	}
+.dropdown-item-hoverable:hover {
+    cursor: pointer;
+    background-color: #dddfe2;
 }
 
-.form-group.empty {
-	height: 2.1rem;
+.line-height-1 {
+    line-height: 1em;
 }
 
-.map {
-	height: 300px;
-	width: 100%;
+#sales {
+    .scroll-content {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+.navbar {
+    background-color: #e3f2fd;
+}
+
+.container,
+.container-fluid {
+    margin-top: 30px;
 }
