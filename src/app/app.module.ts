@@ -22,11 +22,6 @@ import { HighlightPipe } from './shared/pipes/highlight.pipe';
 
 import { DclWrapper } from './shared/component-outlet.directive';
 
-import { ProductService } from './shared/products/product.service';
-import { SaleService } from './shared/sales/sale.service';
-
-import { ConfigService } from './shared/config.service';
-
 @NgModule({
     declarations: [
         AppComponent,
